@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "一起看",
+  "version": "1.4.1",
+  "description": "和朋友、家人或异地的 TA 一起看视频。实时同步 B站/腾讯视频/爱奇艺 的播放、暂停、进度，边看边聊。",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "一起看",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://bilibili.com/*",
+        "*://*.bilibili.com/*",
+        "*://v.qq.com/*",
+        "*://iqiyi.com/*",
+        "*://*.iqiyi.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "help.html"
+      ],
+      "matches": [
+        "*://bilibili.com/*",
+        "*://*.bilibili.com/*",
+        "*://v.qq.com/*",
+        "*://iqiyi.com/*",
+        "*://*.iqiyi.com/*"
+      ]
+    }
+  ]
+}
